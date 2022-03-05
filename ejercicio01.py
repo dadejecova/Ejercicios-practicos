@@ -64,7 +64,15 @@ multiplicar([2,2,2])
 """
 6- Definir una función inversa() que calcule la inversión de una cadena. Por ejemplo la cadena "estoy probando" debería devolver la cadena "odnaborp yotse"
 """
+def inverso(cadena):
+    longitud = -(len(cadena)-1)
+    cadenaN = str()
+    for n in range(longitud,1):
+        n = abs(n)
+        cadenaN += cadena[n]
+    print(cadenaN)
 
+inverso('Comotuteiama')
 
 """
 7 - Definir una función es_palindromo() que reconoce palíndromos (es decir, palabras que tienen el mismo aspecto escritas invertidas), ejemplo: es_palindromo ("radar") tendría que devolver True.

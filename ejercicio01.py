@@ -3,6 +3,7 @@
 devuelva el mayor de ellos.
 """
 
+from asyncio import CancelledError
 from operator import truediv
 
 
@@ -70,7 +71,7 @@ def inverso(cadena):
     for n in range(longitud,1):
         n = abs(n)
         cadenaN += cadena[n]
-    print(cadenaN)
+    return cadenaN
 
 inverso('Comotuteiama')
 
@@ -78,17 +79,50 @@ inverso('Comotuteiama')
 7 - Definir una función es_palindromo() que reconoce palíndromos (es decir, palabras que tienen el mismo aspecto escritas invertidas), ejemplo: es_palindromo ("radar") tendría que devolver True.
 """
 
+def es_palindromo(cadena):
+    cadenaN = inverso(cadena)
+    if cadenaN == cadena:
+        return True
+    
+print(es_palindromo('arenera'))
 
 """
 8- Definir una función superposicion() que tome dos listas y devuelva True si tienen al menos 1 miembro en común o devuelva False de lo contrario. Escribir la función usando el bucle for anidado.
 """
-
+def superposicion(lista1,lista2):
+    for elem in lista1:
+        for elem2 in lista2:
+            if elem == elem2:
+                return True
+    
+    return False
+    """
+    manera elegante
+    for elem in lista1:
+        if elem in lista2:
+            return True
+    
+    return False
+    """
+    
+print('Superposicion:')
+print(superposicion([1,2,3],[7,4,5]))
 
 
 """
 9- Definir una función generar_n_caracteres() que tome un entero n y devuelva el caracter multiplicado por n. Por ejemplo: generar_n_caracteres(5, "x") debería devolver "xxxxx".
 """
+def generar_n_caracteres(caracter,n):
+    string = caracter
+    print(caracter * n)
+    """
+    for i in range(1,n):
+        string += caracter
+    
+    print(string)
+    """
 
+generar_n_caracteres('abc',1)
 
 """
 10- Definir un histograma procedimiento() que tome una lista de números enteros e imprima un histograma en la pantalla. Ejemplo: procedimiento([4, 9, 7]) debería imprimir lo siguiente:
@@ -96,3 +130,9 @@ inverso('Comotuteiama')
 *********
 *******
 """
+def procedimiento(lista):
+    for n in lista:
+        histograma = '*' * n
+        print(f'{histograma} \n')
+    
+procedimiento([4,9,7])
